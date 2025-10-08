@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,0">
+        <title>array1</title>
+    </head>
+    <body>
+        <script>
+            var days=['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','SATURDAY','SUNDAY']; //viene creato un array con i giorni della settimana al suo interno
+            var daysCopy=days;//viene creata una copia dell'array "days"
+            console.log(daysCopy);//viene stampata la copia dell'array
+            daysCopy[0]='Lunedì';//la prima cella dell'array copia viene cambiata da 'MONDAY' a 'Lunedì'
+            console.log(days);
+            console.log(daysCopy);//vengono stampati entrambi gli array e si può notare che entrambi hanno subito la modifica
+
+            var myNum=10;//viene dichiarata una variabile 'myNum' di valore 10
+            var num2=myNum;//viene dichiarata una variabile 'num2' a cui viene assegnato il valore dy 'myNum'
+            num2=4;//il valore di num2 viene modificato in 4
+            console.log(myNum);
+            console.log(num2);//dopo la stampa dei due numeri si può notare come il valore è stato modificato solo nel secondo a diffferenza del primo esempio
+        </script>
+    </body>
+</html>

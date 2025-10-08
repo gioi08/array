@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,0">
+        <title>array2</title>
+    </head>
+    <body>
+        <script>
+            var incassi1=new Array(7);
+            for(let i=0;i<incassi1.length;i++){
+                let elem=prompt("inserici incasso "+(i+1)+"° giorno");
+            }
+            console.log(incassi1);
+            var incassi2=incassi1;
+            for(let i=0;i<incassi2.length;i++){
+                if(i==0 || i==6){
+                    let perc=(incassi[i]*10)/100;
+                    incassi[i]-=perc;
+                }
+            }
+            console.log(incassi2);
+        </script>
+    </body>
+</html>

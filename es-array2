@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1,0">
-        <title>array2</title>
-    </head>
-    <body>
-        <script>
-            var incassi1=new Array(7);
-            for(let i=0;i<incassi1.length;i++){
-                let elem=prompt("inserici incasso "+(i+1)+"° giorno");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array2</title>
+</head>
+<body>
+    <script>
+        // Funzione per calcolare la media degli elementi di un array
+        function media(incassi) {
+            let somma = 0;
+            for (let i = 0; i < incassi.length; i++) {
+                somma += incassi[i];
             }
-            console.log(incassi1);
-            var incassi2=incassi1;
-            for(let i=0;i<incassi2.length;i++){
-                if(i==0 || i==6){
-                    let perc=(incassi[i]*10)/100;
-                    incassi[i]-=perc;
-                }
+            return somma / incassi.length;
+        }
+
+        // Array di 7 incassi
+        let incassi1 = new Array(7);
+        for (let i = 0; i < incassi1.length; i++) {
+            let elem = prompt("Inserisci incasso del " + (i + 1) + "° giorno");
+            incassi1[i] = Number(elem);  // Converti in numero
+        }
+
+        console.log("incassi1 iniziali:", incassi1);
+
+        // incassi2 è un alias di incassi1 (non una copia!)
+        let incassi2 = incassi1;
+
+        // Applica sconto 10% a lunedì (i=0) e domenica (i=6)
+        for (let i = 0; i < incassi2.length; i++) {
+            if (i === 0 || i === 6) {
+                let perc = incassi2[i] * 0.10;
+                incassi2[i] -= perc;
             }
-            console.log(incassi2);
-        </script>
-    </body>
+        }
+
+        console.log("incassi2 dopo sconto:", incassi2);
+
+        // Calcola le medie
+        let media1 = media(incassi1); // uguale a incassi2, stesso array
+        let media2 = media(incassi2);
+        console.log("Media incassi1:", media1);
+        console.log("Media incassi2:", media2);
+
+        // Usa lo spread operator SOLO QUI per copiare incassi1 in incassi3
+        let incassi3 = [...incassi1];
+
+        // Applica di nuovo sconto 10% a lunedì e domenica di incassi1
+        // (ora incassi3 ha ancora i valori pre-sconto)
+        for (let i = 0; i < incassi1.length; i++) {
+            if (i === 0 || i === 6) {
+                let perc = incassi1[i] * 0.10;
+                incassi1[i] -= perc;
+            }
+        }
+
+        let media3 = media(incassi3); // media basata su array non modificato ulteriormente
+        console.log("Media incassi3 (copia):", media3);
+    </script>
+</body>
 </html>

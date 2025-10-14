@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azzecca ed Azzera</title>
+</head>
+<body>
+    <h1>Guarda la console!</h1>
+</body>
+<script>
+    // Crea un array di 50 elementi e lo riempie con numeri casuali tra 0 e 50 (inclusi)
+    var array = new Array(50);
+    for (i = 0; i < array.length; i++) {
+        array[i] = Math.floor(Math.random() * 51);
+    }
+
+    console.log(array);
+
+    var check = false;
+
+    /*
+        In un ciclo ripetuto:
+        - Chiede all'utente un numero
+        - Sostituisce con 0 tutti gli elementi dell'array che sono multipli di quel numero
+        - Verifica se l'intero array è composto solo da zeri
+        - Se sì, il ciclo termina
+    */
+    do {
+        let num = prompt("Inserisci un numero:");
+        num = Number(num);
+
+        // Azzera gli elementi che sono multipli del numero inserito
+        for (i = 0; i < array.length; i++) {
+            if (array[i] % num == 0) {
+                array[i] = 0;
+            }
+        }
+
+        // Controlla se ci sono ancora numeri diversi da zero nell'array
+        for (i = 0; i < array.length; i++) {
+            if (array[i] != 0) {
+                check = true;   // Continua il ciclo: ci sono ancora numeri diversi da zero
+                break;
+            } else {
+                check = false;  // Presuppone che tutto sia zero, ma può essere sovrascritto
+            }
+        }
+
+        console.log(array);
+    } while (check);
+</script>
+</html>
